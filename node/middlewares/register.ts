@@ -11,7 +11,7 @@ export async function register(ctx: Context, next: () => Promise<any>) {
     throw new UserInputError('Please suply de lead data')
   }
 
-  ctx.set('Cache-Control','no-cache no-store');
+  ctx.set('Cache-Control','no-cache, no-store');
   ctx.set('X-VTEX-Use-Https','true')
   ctx.set('Proxy-Authorization','ctx.authToken')
 
