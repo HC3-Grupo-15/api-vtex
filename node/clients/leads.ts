@@ -1,6 +1,12 @@
 import type { InstanceOptions, IOContext, IOResponse } from '@vtex/api'
 import { ExternalClient } from '@vtex/api'
 
+interface Lead {
+  name: string;
+  email: string;
+  telefone: string;
+}
+
 export default class Leads extends ExternalClient {
   private routes = {
     leads: '/leads',
@@ -13,6 +19,12 @@ export default class Leads extends ExternalClient {
   public async getLeads(): Promise<string> {
     return this.http.get(this.routes.leads, {
       metric: 'leads-get',
+    })
+  }
+
+  public async postLead(lead: Lead): Promise<string> {
+    return this.http.post(this.routes.leads, lead, {
+      metric: 'lead-post',
     })
   }
 
