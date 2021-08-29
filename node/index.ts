@@ -3,6 +3,7 @@ import { LRUCache, method, Service } from '@vtex/api'
 
 import { Clients } from './clients'
 import { leads } from './middlewares/leads'
+import { register } from './middlewares/register'
 
 const TIMEOUT_MS = 800
 
@@ -46,6 +47,7 @@ export default new Service({
     // `status` is the route ID from service.json. It maps to an array of middlewares (or a single handler).
     leads: method({
       GET: [leads],
+      POST: [register]
     }),
   },
 })
