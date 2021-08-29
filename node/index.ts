@@ -5,7 +5,7 @@ import { Clients } from './clients'
 import { leads } from './middlewares/leads'
 import { register } from './middlewares/register'
 
-const TIMEOUT_MS = 800
+const TIMEOUT_MS = 2000
 
 // Create a LRU memory cache for the Status client.
 // The @vtex/api HttpClient respects Cache-Control headers and uses the provided cache.
@@ -37,6 +37,13 @@ declare global {
   // The shape of our State object found in `ctx.state`. This is used as state bag to communicate between middlewares.
   interface State extends RecorderState {
     code: number
+  }
+
+  // Interface para o lead que será cadastardo na AWS
+  interface Lead {
+    name: string;
+    email: string;
+    telefone: string;
   }
 }
 

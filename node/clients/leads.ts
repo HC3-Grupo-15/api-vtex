@@ -1,11 +1,6 @@
 import type { InstanceOptions, IOContext, IOResponse } from '@vtex/api'
 import { ExternalClient } from '@vtex/api'
 
-interface Lead {
-  name: string;
-  email: string;
-  telefone: string;
-}
 
 export default class Leads extends ExternalClient {
   private routes = {
