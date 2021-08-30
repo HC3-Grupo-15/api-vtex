@@ -24,6 +24,13 @@
       }
     },
     {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "{accountName}.{environment}.com.br",
+        "path": "*"
+      }
+    },
+    {
       "name": "colossus-fire-event"
     },
     {

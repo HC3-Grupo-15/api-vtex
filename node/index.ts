@@ -4,6 +4,7 @@ import { method, Service } from '@vtex/api'
 import { Clients } from './clients'
 import { leads } from './middlewares/leads'
 import { register } from './middlewares/register'
+import { updateLead } from './middlewares/updateLead'
 
 const TIMEOUT_MS = 2000
 
@@ -45,6 +46,9 @@ export default new Service({
     leads: method({
       GET: [leads],
       POST: [register]
+    }),
+    update: method({
+      POST: [updateLead]
     }),
   },
 })

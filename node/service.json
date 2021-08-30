@@ -9,6 +9,10 @@
     "leads": {
       "path": "/leads",
       "public": true
+    },
+    "update": {
+      "path": "/update",
+      "public": true
     }
   }
 }
