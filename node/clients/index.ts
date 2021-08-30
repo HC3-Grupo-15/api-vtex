@@ -1,7 +1,7 @@
 import { IOClients } from '@vtex/api'
-import { OMS } from '@vtex/clients'
 
 import Leads from './leads'
+import Order from './orders'
 
 // Extend the default IOClients implementation with our own custom clients.
 export class Clients extends IOClients {
@@ -9,7 +9,7 @@ export class Clients extends IOClients {
     return this.getOrSet('leads', Leads)
   }
 
-  public get oms() {
-    return this.getOrSet('oms', OMS)
+  public get order() {
+    return this.getOrSet('order', Order)
   }
 }

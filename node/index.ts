@@ -49,6 +49,6 @@ export default new Service({
     }),
     update: method({
       POST: [updateLead]
-    }),
+    })
   },
 })

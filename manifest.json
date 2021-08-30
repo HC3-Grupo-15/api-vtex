@@ -26,9 +26,12 @@
     {
       "name": "outbound-access",
       "attrs": {
-        "host": "{accountName}.{environment}.com.br",
+        "host": "hiringcoders202115.vtexcommercestable.com.br",
         "path": "*"
       }
+    },
+    {
+      "name": "OMSViewer"
     },
     {
       "name": "colossus-fire-event"

@@ -15,7 +15,7 @@ export async function register(ctx: Context, next: () => Promise<any>) {
   ctx.set('X-VTEX-Use-Https','true')
   ctx.set('Proxy-Authorization','ctx.authToken')
 
-  const res = await leadsClient.postLead(leadData).catch((reason)=>{ return reason?.response?.data })
+  const res = await leadsClient.postLead(leadData).catch((reason) => { return reason?.response?.data })
 
   ctx.body = res
 

@@ -1,23 +1,23 @@
-// import { UserInputError } from '@vtex/api';
 import { json } from 'co-body'
 
 export async function updateLead(ctx: Context, next: () => Promise<any>) {
   const {
-    clients: { oms: omsClient }
+    clients: { order: ordeClient, leads: leadsClient }
   } = ctx
 
   const body = (await json(ctx.req))
   const orderId = body.OrderId
-  // const orderId = "1157842713861-01"
+  const orderData = (await ordeClient.getOrder(ctx, orderId))
+  ctx.status = 200
 
-  const orderData = (await omsClient.order(orderId))
+  const userId = orderData.clientProfileData.userProfileId
+  const userEmail = (await ordeClient.getEmail(ctx, userId))
 
-  ctx.set('Cache-Control','no-cache, no-store');
-  ctx.set('X-VTEX-Use-Https','true')
-  ctx.set('Proxy-Authorization','ctx.authToken')
-  // ctx.status = 200
+  const response = await leadsClient.getLeads().catch((reason) => { return reason?.response?.data })
+  const allLeads = response.Items
 
-  ctx.body = orderData
+  const user = allLeads.find((item: any) => item.email === userEmail[0].email)
+  console.log(user)
 
   await next()
 }

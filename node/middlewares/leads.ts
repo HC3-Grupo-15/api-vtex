@@ -10,7 +10,6 @@ export async function leads(ctx: Context, next: () => Promise<any>) {
   const res = await leadsClient.getLeads().catch((reason)=>{ return reason?.response?.data })
 
   ctx.body = res
-  console.log(res)
 
   await next()
 }
